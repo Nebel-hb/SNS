@@ -13,28 +13,18 @@
   <% end %>
   </div>
 
-  <% if @post_image.favorited_by?(current_user) %>
-  <p>
-    <%= link_to post_image_favorites_path(@post_image), method: :delete do %>
-    🖤<%= @post_image.favorites.count %>いいね！
-    <% end %>
-  </p>
-  <% else %>
-  <p>
-    <%= link_to post_image_favorites_path(@post_image), method: :post do %>
-    ♡🤍<%= @post_image.favorites.count %>いいね！
-    <% end %>
+  
   <% end %>
-<% end %>
+
 </div>
 
 <div class="new-comment">
 
-  <%= form_with(model:[@post_image,@post_comment], local: true) do |f| %>
+  <!--%= form_with(model:[@post_image,@post_comment], local: true) do |f| %>-->
 
-    <%= f.text_area :comment, rows:'5',placeholder: "#{current_user.name}としてコメントを追加..." %>
-    <%= f.submit "投稿する" %>
+  <!--  %= f.text_area :comment, rows:'5',placeholder: "#{current_user.name}としてコメントを追加..." %>-->
+  <!--  %= f.submit "投稿する" %>-->
 
-  <% end %>
+  <!--% end %>-->
 </div>
 

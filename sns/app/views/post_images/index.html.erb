@@ -4,23 +4,6 @@
   <P>ユーザー画像</p>
   <%= post_image.user.name %>
   <%= attachment_image_tag post_image, :image , :fill, 300 , 300 %>
-<script>
-  document.getElementById('heat').toggleClass(.heart)
-</script>
-  <p id="heat"></p>
-  <% if @post_image.favorited_by?(current_user) %>
-    <p>
-      <%= link_to post_image_favorites_path(@post_image), method: :delete do %>
-        ♥<%= @post_image.favorites.count %> いいね
-      <% end %>
-    </p>
-    <% else %>
-    <p>
-      <%= link_to post_image_favorites_path(@post_image), method: :post do %>
-        ♡<%= @post_image.favorites.count %> いいね
-      <% end %>
-    </p>
-    <% end %>
 
 
   <p><%= link_to "...", post_image_path(post_image.id) %></p>
