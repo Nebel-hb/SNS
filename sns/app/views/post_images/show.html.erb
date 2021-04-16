@@ -20,11 +20,11 @@
 
 <div class="new-comment">
 
-  <!--%= form_with(model:[@post_image,@post_comment], local: true) do |f| %>-->
+  <%= form_with(model:[@post_image,@post_comment], local: true) do |f| %>
 
-  <!--  %= f.text_area :comment, rows:'5',placeholder: "#{current_user.name}としてコメントを追加..." %>-->
-  <!--  %= f.submit "投稿する" %>-->
+    <%= f.text_area :comment, rows:'5',placeholder: "#{current_user.name}としてコメントを追加..." %>
+    <%= f.submit "投稿する" %>
 
-  <!--% end %>-->
+  <% end %>
 </div>
 

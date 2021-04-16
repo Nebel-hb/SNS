@@ -14,10 +14,8 @@ class PostImagesController < ApplicationController
   end
 
   def index
-    # @post_images = PostImage.
     @post_images = PostImage.page(params[:page]).reverse_order
-    # @post_image = PostImage.find(params[:id])
-    # @post_comment = PostComment.find(params[:id])
+    
   end
 
   def show
@@ -38,5 +36,8 @@ class PostImagesController < ApplicationController
   end
   def post_comment_params
     params.require(:post_comment).permit(:comment)
+  end
+   def user_params
+    params.require(:user).permit(:name, :profile_image)
   end
 end
