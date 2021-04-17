@@ -1,8 +1,15 @@
 <%= form_with model: @post_image, local:true do |f| %>
 <h1>新規投稿</h1>
-<%= f.submit 'シェア'%>
 
-  <%= f.attachment_field :image %>
+<% if @post_image.errors.any? %>
+  <%= @post_image.errors.count %>件のエラーが発生しました
+  <% @post_image.errors.full_messages.each do |message| %>
+    <%= message %>
+  <% end %>
+<% end %>
+
+<h4><%= f.submit 'シェア'%></h4>
+<h4><%= f.attachment_field :image %></>
 
   <h4>キャプションを書く</h4>
   <%= f.text_area :caption %>

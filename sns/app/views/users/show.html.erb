@@ -1,8 +1,9 @@
 
 <div class="profile-container">
+  <div class="row">
 
   <h3><%= @user.user_name %></h3>
-   <%= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg' %>
+   <%= attachment_image_tag @user, :profile_image, :fill, 30, 30, format: 'jpeg' %>
   <p><%= @post_images.count %>投稿</p>
   <p>フォロワー</p>
   <p>フォロー中</p>
@@ -18,7 +19,7 @@
 
    <% end %>
 
-</div>
+
 
 <% @post_images.each do |post_image| %>
 <div>
@@ -28,3 +29,5 @@
 
 <% end %>
 <%= paginate @post_images %>
+</div>
+</div>

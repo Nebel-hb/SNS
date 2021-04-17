@@ -4,35 +4,37 @@
     <title>Sns</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+        <script src="https://kit.fontawesome.com/f1ea8cd658.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <div class="container bg-dark">
     <li>
-       <%= link_to 'Magic Camera Telegram', post_images_path %>
+       <%= link_to 'Instagram', post_images_path ,class:" text-light" %>
      </li>
 
      <% if user_signed_in? %>
      <li>
-       <%= link_to '投稿フォーム', new_post_image_path %>
+       <%= link_to '投稿フォーム', new_post_image_path ,class:" text-light" %>
      </li>
       <li>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+        <%= link_to "ログアウト", destroy_user_session_path,class:" text-light", method: :delete %>
       </li>
       <li>
-      <%= link_to 'マイページ', user_path(current_user.id) %>
+      <%= link_to 'マイページ', user_path(current_user.id), class:" text-light" %>
       </li>
     <% else %>
       
       <li>
-        <%= link_to "新規登録", new_user_registration_path %>
+        <%= link_to "新規登録", new_user_registration_path, class:" text-light" %>
       </li>
       <li>
-        <%= link_to "ログイン", new_user_session_path %>
+        <%= link_to "ログイン", new_user_session_path, class:" text-light" %>
       </li>
     <% end %>
+    </div>
     <%= yield %>
   </body>
 </html>
