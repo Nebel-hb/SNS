@@ -1,14 +1,16 @@
 
-  <% if @post_image.favorited_by?(current_user) %>
-    <p>
-      <%= link_to post_image_favorites_path(@post_image), method: :delete, remote: true do %>
-        ♥<%= @post_image.favorites.count %> いいね
-      <% end %>
-    </p>
-    <% else %>
-    <p>
-      <%= link_to post_image_favorites_path(@post_image), method: :post, remote: true do %>
-        ♡<%= @post_image.favorites.count %> いいね
-      <% end %>
-    </p>
+<% if user_signed_in? %>
+
+  <% if post_image.favorited_by?(current_user) %>
+    <%= link_to post_image_favorites_path(post_image.id), method: :delete, remote: true do %>
+     🤍<%= post_image.favorites.count %>いいね
     <% end %>
+  <% else %>
+    <%= link_to post_image_favorites_path(post_image.id), method: :post, remote: true do %>
+      🖤<%= post_image.favorites.count %>いいね
+    <% end %>
+  <% end %>
+
+<% else %>
+    <%= post_image.favorites.count %>
+<% end %>
