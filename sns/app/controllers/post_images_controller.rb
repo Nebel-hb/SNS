@@ -43,7 +43,7 @@ class PostImagesController < ApplicationController
   def post_comment_params
     params.require(:post_comment).permit(:comment)
   end
-   def user_params
+  def user_params
     params.require(:user).permit(:name, :profile_image)
   end
 end

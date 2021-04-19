@@ -6,10 +6,9 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'homes#top'
   resources :post_images, only: [:new, :create, :index, :show, :destroy] do
-    resources :favorites, only: [:create, :destroy]
+    resource :favorites, only: [:create, :destroy]
     resources :post_comments, only: [:create, :destroy]
-    post '/post_images/:post_image_id/favorites' => 'post_image_favorites#create'
-    delete '/post_images/:post_image_id/favorites' => 'post_image_favorites#destroy'
+
   end
   resources :users, only: [:show, :edit, :update, :index]
   resources :user_index, only: [:show]
